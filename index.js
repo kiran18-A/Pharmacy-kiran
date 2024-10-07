@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express= require("express");
 const ejs=require("ejs");
 const app= express();
@@ -16,8 +18,10 @@ app.set("views",  path.join(__dirname, "/views"));
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride("_method"))
 
+
+const ATLAS_URL = process.env.ATLAS_URL
 async function main(){
-  await mongoose.connect("mongodb://127.0.0.1:27017/Pharm");   
+  await mongoose.connect(ATLAS_URL);   
 }
 
 
@@ -28,7 +32,7 @@ main().then( ()=>{
 
 
 
-const port=8080;
+const port=process.env.PORT;
 
 
 
