@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Feedback Form</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #0f2027;
+    background: -webkit-linear-gradient(to right, #2c5364, #203a43, #0f2027); 
+    background: linear-gradient(to right, #2c5364, #203a43, #0f2027); 
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+}
+
+.form-box {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    transform: rotateY(15deg);
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.form-box:hover {
+    transform: rotateY(0deg);
+}
+
+.form-box h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.input-box input,
+.input-box textarea {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    color: #333;
+    font-size: 16px;
+    transition: 0.5s;
+}
+
+.input-box label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #333;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.input-box input:focus ~ label,
+.input-box textarea:focus ~ label,
+.input-box input:valid ~ label,
+.input-box textarea:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #ff105f;
+    font-size: 12px;
+}
+
+.input-box input[type="submit"] {
+    background: #ff105f;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.input-box input[type="submit"]:hover {
+    background: #e50956;
+}
+
+.rating {
+    margin-bottom: 20px;
+}
+
+.stars {
+    display: flex;
+    justify-content: space-around;
+}
+
+.stars input[type="radio"] {
+    display: none;
+}
+
+.stars label {
+    font-size: 20px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.stars input[type="radio"]:checked ~ label {
+    color: #ff105f;
+}
+
+.stars label:hover,
+.stars label:hover ~ label {
+    color: #ff105f;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h2>Feedback Form</h2>
+            <form action="#" method="post">
+                <div class="input-box">
+                    <input type="text" name="name" required>
+                    <label>Full Name</label>
+                </div>
+                <div class="input-box">
+                    <input type="email" name="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <textarea name="feedback" required></textarea>
+                    <label>Your Feedback</label>
+                </div>
+                <div class="rating">
+                    <label for="rating">Rate us:</label>
+                    <div class="stars">
+                        <input type="radio" name="rate" id="rate-5">
+                        <label for="rate-5" class="fas fa-star"></label>
+                        <input type="radio" name="rate" id="rate-4">
+                        <label for="rate-4" class="fas fa-star"></label>
+                        <input type="radio" name="rate" id="rate-3">
+                        <label for="rate-3" class="fas fa-star"></label>
+                        <input type="radio" name="rate" id="rate-2">
+                        <label for="rate-2" class="fas fa-star"></label>
+                        <input type="radio" name="rate" id="rate-1">
+                        <label for="rate-1" class="fas fa-star"></label>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Fill information</h1>
+        <form method="post" action="/add">
+            
+        <label>Eail:</label><input type="email" name="email" id="nameInput" placeholder="Email@122gmail.com" />
+        <br>
+        <br>
+        <label>Mobile Number:</label><input type="number" name="mobile_no" id="nameInput" placeholder="Number" />
+        <br>
+        <br>
+        <label>Set password:</label><input type="number" name="pass" id="nameInput" placeholder="remaber the password" />
+        <br>
+        <br>
+        <label>Name of post:</label><input type="text" name="name" id="nameInput" placeholder="Name" />
+        <br>
+        <br>
+        <label>Location of job:</label><input type="address" name="address" id="nameInput" placeholder="address" />
+        <br>
+        <br>
+        <label>Qulification:</label>
+        <select name="Qulification">
+            <option value="d_pharm">D Param</option>
+            <option value="b_pharm">B Param</option>
+            <option value="m_pharm">M Param</option>
+        </select>
+        <br>
+        <br>
+        <label>Salary:</label>
+        <select name="Salary">
+            <option value="below5000" name="Salary">Below 5000</option>
+            <option value="5000to10000" name="Salary">5000-10000</option>
+            <option value="10000to2000" name="Salary">10000-20000</option>
+            <option value="10000to2000" name="Salary">As per knowledge</option>
+        </select>
+        <br>
+        <br>
+        <label>job time:</label>
+        <select name="time">
+            <option value="half">Part time</option>
+            <option value="full">Full time</option>
+        </select>
+        <br>
+        <br>
+        <button type="submit" id="addButton">submit</button>
+        </form>
+    </div>
+
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    background-color: rgb(6, 4, 4);
+}
+
+.container {
+    max-width: 400px;
+    margin: auto;
+    background:white;
+    /* color: white; */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #218838;
+}
+#btn
+{
+    width: 10%;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: #e9ecef;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 4px;
+}
+#nameInput
+{
+
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 20px;
+    text-align: center;
+}
+
+    </style>
+
+
+
+</body>
+</html>

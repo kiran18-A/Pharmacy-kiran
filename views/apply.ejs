@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Application Form</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #2b5876, #4e4376);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    perspective: 1000px; /* Adds perspective for 3D */
+    transform: rotateY(10deg); /* Slightly tilts the form */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+label {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+input:focus {
+    transform: translateY(-5px); /* Raises the input when focused */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #4e4376;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Your Application is for <%= apply.name_of_post %></h1>
+        <form method="post" action="/apply/<%= apply.id %>">
+            <div class="input-group">
+                <label for="name">Full Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter your name">
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email">
+            </div>
+            <div class="input-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" name="mobile" id="phone" placeholder="Enter your phone number">
+            </div>
+            <div class="input-group"></div>
+                <label for="phone">Eduaction</label>
+                <input type="text" name="edu" id="phone" placeholder="D or B or M">
+                <br>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

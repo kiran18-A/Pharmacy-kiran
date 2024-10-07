@@ -1,0 +1,17 @@
+{
+  "name": "pharm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kiran",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "all": "^0.0.0",
+    "dotenv": "^16.4.5",
+    "method-override": "^3.0.0",
+    "nodemon": "^3.1.7"
+  }
+}

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .type{
+        background-color: #04AA6D;
+        border: none;
+        color: white;
+      }
+        .button {
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.button1 {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.main button
+{
+  margin: auto;
+  margin-left: 150px;
+  margin-top: 150px;
+  border: 2px solid white;
+  width: 20%;
+}
+
+input
+{
+  border-radius: 90px;
+}
+button
+{
+  border-radius: 90px;
+}
+input:hover
+{
+  
+  border: 2px solid black;
+  
+}
+
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+.container {
+    background-color: #888;
+  padding: 16px;
+  /* background-image: url("https://t3.ftcdn.net/jpg/03/55/60/70/240_F_355607062_zYMS8jaz4SfoykpWz5oViRVKL32IabTP.jpg"); */
+}
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  /* background-color: #fefefe; */
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 30%; 
+  border-radius: 20px;
+  background-image: url("https://thumbs.dreamstime.com/b/light-blue-background-blurred-sky-design-cloudy-white-paint-blurry-border-fresh-spring-colors-49610558.jpg");
+}
+.block {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.block1{
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 100vh;
+}
+
+.info-block {
+    background-color: #ffffff;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 900px;
+    padding: 300px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 30px;
+}
+
+.title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+}
+
+.name, .description, .note {
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+.name strong, .description strong, .note strong {
+    color: #333;
+}
+
+.note {
+    font-style: italic;
+    color: #555;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #04AA6D;
+    padding: 5px 20px;
+    color: #000;
+    /*color: wheat;*/
+}
+
+.logo a {
+  background-color: #04AA6D;
+    color: #000;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+.nav-links {
+  position:fixed;
+  background-color: #04AA6D;
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+  background-color: #04AA6D;
+    color: wheat;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #47ffa3; /* Change color on hover */
+}
+.button_remove{
+  background-color: rgb(238, 170, 170);
+  border: none;
+  border-radius: 30%;
+}
+    </style>
+</head>
+<body>
+  <script>
+    // Get the modal element
+const modal = document.getElementById("passwordModal");
+
+// Get the button that opens the modal
+const openModalBtn = document.getElementById("openModalBtn");
+
+// Get the <span> element that closes the modal
+const closeBtn = document.getElementsByClassName("close-btn")[0];
+
+// Open the modal when the button is clicked
+openModalBtn.onclick = function() {
+modal.style.display = "flex";
+}
+
+// Close the modal when the close button is clicked
+closeBtn.onclick = function() {
+modal.style.display = "none";
+}
+
+// Close the modal when the user clicks anywhere outside the modal
+window.onclick = function(event) {
+if (event.target === modal) {
+    modal.style.display = "none";
+}
+}
+
+// Optional: Form submission
+const form = document.getElementById("passwordForm");
+form.onsubmit = function(e) {
+e.preventDefault();
+const password = document.getElementById("password").value;
+if (password) {
+    alert("Password entered: " + password);
+    modal.style.display = "none";
+}
+}
+</script>
+  <nav class="navbar">
+       <ul class="nav-links">
+        
+            <li><a href="/">Home</a></li>
+            <li><a href="#A">Type A</a></li>
+            <li><a href="#B">Type B</a></li>
+            <li><a href="#C">Type C</a></li>
+            <li><a href="#D">Type D</a></li>
+            <li><a href="#E">Type E</a></li>
+            <li><a href="#F">Type F</a></li>
+        </ul>
+   
+</nav>
+    <div class="type">
+      <center><button class="button" id="A">Type A</button></center>
+      <% for(let adr of adrs)  { %>
+        <% if(adr.type=="typeA") {%>
+          <div class="sub_type">
+            <h7 style="text-align: right;"><%= adr.name %></h7>
+            <h4><%= adr.name_of_m %></h4>
+            <h5><%= adr.recation %></h5>
+            <p><%= adr.note %></p>
+          <form method="get" action="/adrlog/<%= adr._id %>/edit">
+            <button class="button_remove"style="width:auto;">Edit</button>
+        </form>
+          </div>
+          <br>
+          <hr>
+          <br>
+        <% } %>
+      <% } %>
+      <center><button class="button" id="B">Type B</button></center>
+      <% for(let adr of adrs)  { %>
+        <% if(adr.type=="typeB") {%>
+          <div class="sub_type">
+            <h7 style="text-align: right;"><%= adr.name %></h7>
+            <h4><%= adr.name_of_m %></h4>
+            <h5><%= adr.recation %></h5>
+            <p><%= adr.note %></p>
+            <button class="button_remove"style="width:auto;">Remove</button>
+          </div>
+          <br>
+          <hr>
+          <br>
+        <% } %>
+      <% } %>
+      <center><button class="button" id="C">Type C</button></center>
+      <% for(let adr of adrs)  { %>
+        <% if(adr.type=="typeC") {%>
+          <div class="sub_type">
+            <h7 style="text-align: right;"><%= adr.name %></h7>
+            <h4><%= adr.name_of_m %></h4>
+            <h5><%= adr.recation %></h5>
+            <p><%= adr.note %></p>
+            <button class="button_remove"style="width:auto;">Remove</button>
+          </div>
+          <br>
+          <hr>
+          <br>
+        <% } %>
+      <% } %>
+      <center><button class="button" id="D">Type D</button></center>
+      <% for(let adr of adrs)  { %>
+        <% if(adr.type=="typeD") {%>
+          <div class="sub_type">
+            <h7 style="text-align: right;"><%= adr.name %></h7>
+            <h4><%= adr.name_of_m %></h4>
+            <h5><%= adr.recation %></h5>
+            <p><%= adr.note %></p>
+            <button class="button_remove"style="width:auto;">Remove</button>
+          </div>
+          <br>
+          <hr>
+          <br>
+        <% } %>
+      <% } %>
+      <center><button class="button" id="E">Type E</button></center>
+      <% for(let adr of adrs)  { %>
+        <% if(adr.type=="typeE") {%>
+          <div class="sub_type">
+            <h7 style="text-align: right;"><%= adr.name %></h7>
+            <h4><%= adr.name_of_m %></h4>
+            <h5><%= adr.recation %></h5>
+            <p><%= adr.note %></p>
+            <button class="button_remove"style="width:auto;">Remove</button>
+          </div>
+          <br>
+          <hr>
+          <br>
+        <% } %>
+      <% } %>
+      <center><button class="button" id="F">Type F</button></center>
+      <% for(let adr of adrs)  { %>
+        <% if(adr.type=="typeF") {%>
+          <div class="sub_type">
+            <h7 style="text-align: right;"><%= adr.name %></h7>
+            <h4><%= adr.name_of_m %></h4>
+            <h5><%= adr.recation %></h5>
+            <p><%= adr.note %></p>
+            <button class="button_remove"style="width:auto;">Remove</button>
+          </div>
+          <br>
+          <hr>
+          <br>
+        <% } %>
+      <% } %>
+    </div>
+    </div>
+        <div>
+                <div>
+                    <button id="btn"class="button button2" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Add new in any type</button>
+                </div>
+        </div>
+    </div>
+    <div id="id01" class="modal">
+
+  
+  <form class="modal-content animate" method="post" action="/adr">
+    <div class="container">
+      <center><h2>Add new</h2></center>
+      <form>
+        <label>Your Name:</label><input type="text" name="name" placeholder="name">
+        <br><br>
+        <lable>Type:</lable>
+        <select name="type">
+          <option value="typeA">Type A</option>
+          <option value="typeB">Type B</option>
+          <option value="typeC">Type C</option>
+          <option value="typeD">Type D</option>
+          <option value="typeE">Type E</option>
+          <option value="typeF">Type F</option>
+        </select>
+        <br><br>
+        <label>Name of :</label><input type="text" name="name_of_m" placeholder="name of the ">
+        <br><br>
+        <label>Reaction:</label><input type="text" name="reaction" placeholder="reaction">
+        <br><br>
+        <label>Note:</label><textarea name="note"></textarea>
+        <br><br>
+        <label>password:</label><input type="password" name="pass" placeholder="These password will use to edit or remove  so remaber it">
+        <br><br>
+        <button class="button button2" type="submit">Add</button>
+      </from>
+      <br>
+      <br>
+    </div>
+    <script>
+        // Get the modal
+        var modal1 = document.getElementById('id01');
+        var modal2 = document.getElementById('id02');
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal1) {
+                modal1.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
